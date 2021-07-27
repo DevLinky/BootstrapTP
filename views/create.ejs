@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); -%>
+
+    <body>
+
+        <!-- Navigation-->
+        <%- include('layouts/nav'); -%>
+
+
+            <!-- Page Header-->
+            <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+                <div class="container position-relative px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <div class="page-heading">
+                                <h1>Créer un nouveau Message</h1>
+                                <span class="subheading">Une question mon petit bichon ? j'ai la réponse</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+            <!-- Main Content-->
+            <main class="mb-4">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <p>Want to get in touch? Fill out the form below to send me a message and I will get back to
+                                you as soon as possible!</p>
+                            <div class="my-5">
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- * * SB Forms Contact Form * *-->
+                                <!-- * * * * * * * * * * * * * * *-->
+                                <!-- This form is pre-integrated with SB Forms.-->
+                                <!-- To make this form functional, sign up at-->
+                                <!-- https://startbootstrap.com/solution/contact-forms-->
+                                <!-- to get an API token!-->
+                                <form action="/posts/store" method="POST" id="contactForm"
+                                    data-sb-form-api-token="API_TOKEN" enctype="multipart/form-data">
+
+                                    <div class="form-floating">
+
+                                        <input class="form-control" id="title" type="text" placeholder="Entre un titre"
+                                            data-sb-validations="required" name="title" />
+                                        <label for="Title">Titre</label>
+
+                                        <div class="invalid-feedback">titre is not valid.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="body"
+                                            placeholder="Entrez vottre texte" style="height: 12rem"
+                                            data-sb-validations="required" name="body"></textarea>
+                                        <label for="body">Description</label>
+                                        <script>$('#body').summernote({
+                                            placeholder: 'Allez... Écrivez!',
+                                            tabsize: 2, height: 200});</script>
+                                        <div class="invalid-feedback" data-sb-feedback="message:required">Message requis</div>
+
+                                    </div>
+
+                                    <div class="form-group floating-label-form-group controls">
+                                        <label>Fichier</label>
+                                        
+                                        <input type="file" name="image" id="image" class='form-control'>
+                                    </div>
+
+                                    <br />
+                                    
+                                    <!-- Submit Button-->
+                                    <button class="btn btn-primary text-uppercase" id="submitButton"
+                                        type="submit">Envoie</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <%- include('layouts/footer'); -%>
+                <%- include('layouts/script'); -%>
+    </body>
+
+</html>
